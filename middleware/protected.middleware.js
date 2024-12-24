@@ -15,7 +15,7 @@ exports.adminProtected = asyncHandler(async (req,res,next) => {
     next()
     })
 } )
-exports.employeeProtected = asyncHandler(async (req,res) => {
+exports.employeeProtected = asyncHandler(async (req,res,next) => {
     const token = req.cookies["todo-employee"]
     if(!token) {
         return res.status(401).json({ message: "no cookie found" })
